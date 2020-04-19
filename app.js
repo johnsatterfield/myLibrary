@@ -9,14 +9,14 @@ require('dotenv/config');
 // Import Routes
 const indexRoute = require('./routes/index');
 const authRoute = require('./routes/auth');
+const authorRoute = require('./routes/author');
 const postRoute = require('./routes/posts');
 
 // Middleware
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use('/api/user', authRoute);
-app.use('/posts', postRoute);
+
 app.use(cors());
 
 app.set('view engine', 'ejs');
@@ -34,6 +34,11 @@ mongoose.connect(
     }
 );
 app.use('/', indexRoute);
+app.use('/authors', authorRoute);
+app.use('/api/user', authRoute);
+app.use('/posts', postRoute);
+
+
 app.get('/', (req,res) => {
     res.render('index.ejs');
 });
