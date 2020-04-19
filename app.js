@@ -10,6 +10,7 @@ require('dotenv/config');
 const indexRoute = require('./routes/index');
 const authRoute = require('./routes/auth');
 const authorRoute = require('./routes/author');
+const bookRoute = require('./routes/book');
 const postRoute = require('./routes/posts');
 
 // Middleware
@@ -35,6 +36,7 @@ mongoose.connect(
 );
 app.use('/', indexRoute);
 app.use('/authors', authorRoute);
+app.use('/books', bookRoute);
 app.use('/api/user', authRoute);
 app.use('/posts', postRoute);
 
