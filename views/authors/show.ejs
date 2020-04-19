@@ -1,0 +1,16 @@
+<h2><%= author.name %></h2>
+<div>
+    <a href="/authors/<%= author.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}`}) %>
+</div>
+<div>
+    <% if(booksByAuthor.length > 0) { %>
+        <h2>Books by Author</h2>
+        <div>
+            <% booksByAuthor.forEach(book => { %>
+                <div><%= author.name %></div>
+                <p><a href="/books/<%= book.id %>"><%= book.name %></a></p>
+            <% }) %>
+        </div>
+    <% } %>
+</div>

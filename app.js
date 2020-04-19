@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 const cors = require('cors');
 require('dotenv/config');
 
@@ -16,6 +17,7 @@ const postRoute = require('./routes/posts');
 // Middleware
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
 
 app.use(cors());
