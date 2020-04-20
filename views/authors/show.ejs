@@ -1,16 +1,29 @@
-<h2><%= author.name %></h2>
-<div>
-    <a href="/authors/<%= author.id %>/edit">Edit</a>
-    <%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}`}) %>
-</div>
-<div>
-    <% if(booksByAuthor.length > 0) { %>
-        <h2>Books by Author</h2>
-        <div>
-            <% booksByAuthor.forEach(book => { %>
-                <div><%= author.name %></div>
-                <p><a href="/books/<%= book.id %>"><%= book.title %></a></p>
-            <% }) %>
-        </div>
-    <% } %>
+<div class="card" style="width:30%; margin:10px;">
+    <div class="card-body">
+        <table class="table table-light">
+            <tr>
+                <td colspan="2"><h3><%= author.name %></h3></td>
+            </tr>
+            <tr>
+                <td>Total books:</td>
+                <td><%= booksByAuthor.length %></td>
+            </tr>
+            <tr>
+                <td><a class="btn btn-secondary" href="/authors/<%= author.id %>/edit">Edit</a></td>
+                <td><%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}`}) %></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <% if(booksByAuthor.length > 0) { %>
+                        <h4>Books by Author</h4>
+                            <ul>
+                                <% booksByAuthor.forEach(book => { %>
+                                    <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+                                <% }) %>
+                            </ul>
+                    <% } %>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

@@ -1,22 +1,22 @@
 <h2>Search Books</h2>
 <form action="/books" method="GET">
-    <div>
+    <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" name="title" value="<%= searchOptions.title %>" />
+        <input class="form-control" type="text" name="title" value="<%= searchOptions.title %>" />
     </div>
-    <div>
+    <div class="form-group">
         <label for="pubAfter">Published After</label>
-        <input type="date" name="pubAfter" value="<%= searchOptions.publishedAfter %>" />
+        <input class="form-control" type="date" name="pubAfter" value="<%= searchOptions.publishedAfter %>" />
     </div>
-    <div>
+    <div class="form-group">
         <label for="pubBefore">Published Before</label>
-        <input type="date" name="pubBefore" value="<%= searchOptions.publishedBefore %>" />
+        <input class="form-control" type="date" name="pubBefore" value="<%= searchOptions.publishedBefore %>" />
     </div>
-    <button type="submit">Search</button>
+    <button class="btn btn-primary" type="submit">Search</button>
 </form>
 <br />
-<div>
+<div class="card">
     <% books.forEach(book => { %>
-        <div><a href="/books/<%= book.id %>"><%= book.title %></a></div>
+        <h5 class="card-title"><a href="/books/<%= book.id %>"><%= book.title %></a></h5>
     <% }) %>
 </div>
