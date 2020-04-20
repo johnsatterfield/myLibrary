@@ -9,7 +9,7 @@
         <div>
             <% booksByAuthor.forEach(book => { %>
                 <div><%= author.name %></div>
-                <p><a href="/books/<%= book.id %>"><%= book.name %></a></p>
+                <p><a href="/books/<%= book.id %>"><%= book.title %></a></p>
             <% }) %>
         </div>
     <% } %>
